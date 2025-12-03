@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvo1tifuc827n"]
+
+[ext_resource type="Script" uid="uid://dqtvolplinx6f" path="res://Scripts/Level.cs" id="1_tumq0"]
+[ext_resource type="PackedScene" uid="uid://bwbu0aovt8cdg" path="res://Scenes/camera.tscn" id="2_k5f4k"]
+[ext_resource type="PackedScene" uid="uid://0nvfmcm01fmw" path="res://Scenes/ui.tscn" id="3_6phgx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6phgx"]
+size = Vector3(47.85, 8.61609, 79.1552)
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_tumq0")
+
+[node name="Start" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.40264, 0)
+
+[node name="Camera" parent="." instance=ExtResource("2_k5f4k")]
+
+[node name="End" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="End"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.3937, 4.72267, -7.37345)
+shape = SubResource("BoxShape3D_6phgx")
+
+[node name="DirectionalLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 516.513, 0)
+light_energy = 16.0
+omni_range = 4096.0
+
+[node name="StaticBodies" type="Node3D" parent="."]
+
+[node name="UI" parent="." instance=ExtResource("3_6phgx")]

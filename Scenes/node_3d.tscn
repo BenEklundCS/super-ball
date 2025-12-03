@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://difdoi87it8s3"]
+
+[ext_resource type="PackedScene" uid="uid://bwbu0aovt8cdg" path="res://Scenes/camera.tscn" id="2_bi5fs"]
+[ext_resource type="PackedScene" uid="uid://bcjqvss47psqa" path="res://Scenes/player.tscn" id="3_okq71"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vkdvt"]
+size = Vector3(200.214, 0.001, 199.746)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bi5fs"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.389308, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.154381, 0, 0.152611)
+shape = SubResource("BoxShape3D_vkdvt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+mesh = SubResource("PlaneMesh_bi5fs")
+
+[node name="Camera" parent="." node_paths=PackedStringArray("AttachTarget") instance=ExtResource("2_bi5fs")]
+AttachTarget = NodePath("../Player")
+
+[node name="DirectionalLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 33.7738, 0)
+light_energy = 16.0
+omni_range = 4096.0
+
+[node name="Player" parent="." instance=ExtResource("3_okq71")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.32777, 0)
+JumpForce = 12.0

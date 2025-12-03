@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcjqvss47psqa"]
+
+[ext_resource type="Script" uid="uid://0m0r6o7lj50p" path="res://Scripts/Player.cs" id="2_cvnsp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_v0iea"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_v0iea"]
+height = 1.0
+rings = 64
+
+[node name="Player" type="RigidBody3D"]
+script = ExtResource("2_cvnsp")
+JumpForce = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_v0iea")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_v0iea")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_v0iea")

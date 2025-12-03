@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://0nvfmcm01fmw"]
+
+[ext_resource type="Script" uid="uid://er0a6l2eemhj" path="res://Scripts/Ui.cs" id="1_jxero"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jxero")
+
+[node name="CurrentLevel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 201.0
+offset_bottom = 76.0
+text = "1"
+
+[node name="TimeElapsed" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -229.0
+offset_bottom = 74.0
+grow_horizontal = 0
+text = "0"
