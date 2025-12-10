@@ -1,6 +1,6 @@
 using Godot;
 
-namespace SuperMonkeyBall.Scripts;
+namespace SuperBall.Scripts;
 
 using static GD;
 
@@ -51,6 +51,7 @@ public partial class Level : Node3D {
         var player = (Player)Load<PackedScene>("res://Scenes/player.tscn").Instantiate();
         AddChild(player);
         _player = player;
+        _ui.SetPlayerRef(player);
         _player.Collision += OnPlayerCollision;
         ResetPlayer();
     }
@@ -66,10 +67,31 @@ public partial class Level : Node3D {
     }
 
     private void OnBodyEnteredEnd(Node3D body) {
-        if (body is Player) {
-            Print("You win!");
-            _timerRunning = false;
+        if (body is not Player) {
+            return;
         }
+        Print("You win!");
+        _timerRunning = false;
+        
+        Callable.From(() => {
+            SaveLevel();
+            GetTree().ChangeSceneToFile("res://Scenes/main_menu.tscn");
+        }).CallDeferred();
+    }
+
+    private void SaveLevel() {
+        var levelData = new LevelData(true, _elapsedTime);
+        if (Global.Instance.Save.Levels.ContainsKey(Name)) {
+            var currentLevelData = (LevelData)Global.Instance.Save.Levels[Name];
+            if (currentLevelData.CompletionTime > _elapsedTime) {
+                Global.Instance.Save.Levels.Remove(Name);
+                Global.Instance.Save.Levels.Add(Name, levelData);
+            }
+        }
+        else {
+            Global.Instance.Save.Levels.Add(Name, levelData);
+        }
+        ResourceSaver.Singleton.Save(Global.Instance.Save, "user://game_save.res");
     }
 
     private void OnPlayerCollision(Node3D body) {

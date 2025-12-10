@@ -1,6 +1,6 @@
 using Godot;
 
-namespace SuperMonkeyBall.Scripts;
+namespace SuperBall.Scripts;
 
 public partial class Camera : Camera3D {
     private bool _attached = true;

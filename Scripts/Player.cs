@@ -1,7 +1,7 @@
 using Godot;
 using static Godot.GD;
 
-namespace SuperMonkeyBall.Scripts;
+namespace SuperBall.Scripts;
 
 public partial class Player : RigidBody3D {
     [Signal] public delegate void CollisionEventHandler(Node3D body);

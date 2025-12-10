@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bljfisck8hfe1"]
+[gd_scene load_steps=3 format=3 uid="uid://bljfisck8hfe1"]
 
 [ext_resource type="Script" uid="uid://d1ss2toyd5beq" path="res://Scripts/MainMenu.cs" id="1_28flt"]
+[ext_resource type="PackedScene" uid="uid://csx3b0qe3tnq5" path="res://Scenes/level_button.tscn" id="2_48xlc"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -11,17 +12,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_28flt")
 
-[node name="Start" type="Button" parent="."]
+[node name="LevelButton" parent="." instance=ExtResource("2_48xlc")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -323.0
-offset_right = 576.0
-offset_bottom = 323.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "START"
+offset_right = -903.0
+offset_bottom = -524.0
+LevelName = "LevelOne"

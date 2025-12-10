@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://0nvfmcm01fmw" path="res://Scenes/ui.tscn" id="3_6phgx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6phgx"]
-size = Vector3(47.85, 8.61609, 79.1552)
+size = Vector3(26.8384, 50.4427, 4.00905)
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_tumq0")
