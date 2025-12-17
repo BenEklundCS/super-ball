@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://csx3b0qe3tnq5"]
+
+[ext_resource type="Script" uid="uid://cmayf2cghpl0h" path="res://Scripts/LevelButton.cs" id="1_iapje"]
+
+[node name="LevelButton" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iapje")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.999132
+anchor_bottom = 0.712963
+metadata/_edit_use_anchors_ = true
+
+[node name="CompletionTime" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.499132
+anchor_top = 0.714506
+anchor_right = 1.00087
+anchor_bottom = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Completed" type="CheckBox" parent="."]
+layout_mode = 0
+anchor_left = 0.000868056
+anchor_top = 0.71142
+anchor_right = 0.481771
+anchor_bottom = 0.998457
+disabled = true
+metadata/_edit_use_anchors_ = true
